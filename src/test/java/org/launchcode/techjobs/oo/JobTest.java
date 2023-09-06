@@ -42,4 +42,9 @@ public class JobTest {
                 new PositionType("Quality control"), new CoreCompetency("Persistence"));
         assertFalse(test_job1.equals(test_job2));
     }
+
+//    @Test
+//    public void testToStringStartsAndEndsWithNewLine() {
+//
+//    }
 }
