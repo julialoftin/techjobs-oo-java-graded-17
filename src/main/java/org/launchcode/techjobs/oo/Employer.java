@@ -4,15 +4,18 @@ import java.util.Objects;
 
 public class Employer {
 
+    // Declares/instantiates private fields
     private int id;
     private static int nextId = 1;
     private String value;
 
+    // Constructor with no parameters that assigns an ID and increments nextID after
     public Employer() {
         id = nextId;
         nextId++;
     }
 
+    // Constructor that calls above constructor, then assigns the passed in String value to this.value
     public Employer(String value) {
         this();
         this.value = value;
@@ -20,6 +23,8 @@ public class Employer {
 
     // Custom toString, equals, and hashCode methods:
 
+    // Custom toString method returns value assigned in overloaded constructor
+    // Usage is print job.getEmployer
     @Override
     public String toString() {
         return value;
