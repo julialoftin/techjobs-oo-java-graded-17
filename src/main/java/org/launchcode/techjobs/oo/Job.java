@@ -82,4 +82,20 @@ public class Job {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+    @Override
+    public String toString() {
+        String noData = "Data not available";
+        String customString =
+                System.lineSeparator() +
+                        "ID: " + (id > 0 ? id : noData) + System.lineSeparator() +
+                        "Name: " + (!name.isEmpty() ? name : noData) + System.lineSeparator() +
+                        "Employer: " + (!employer.toString().isEmpty() ? employer : noData) + System.lineSeparator() +
+                        "Location: " + (!location.toString().isEmpty() ? location : noData) + System.lineSeparator() +
+                        "Position Type: " + (!positionType.toString().isEmpty() ? positionType : noData) + System.lineSeparator() +
+                        "Core Competency: " + (!coreCompetency.toString().isEmpty() ? coreCompetency : noData) +
+                System.lineSeparator();
+
+        return customString;
+    }
 }

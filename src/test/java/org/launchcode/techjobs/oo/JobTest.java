@@ -1,6 +1,7 @@
 package org.launchcode.techjobs.oo;
 
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.Assert.*;
 
@@ -43,8 +44,28 @@ public class JobTest {
         assertFalse(test_job1.equals(test_job2));
     }
 
-//    @Test
-//    public void testToStringStartsAndEndsWithNewLine() {
-//
-//    }
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        Job test_job = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertTrue(test_job.toString().startsWith(System.lineSeparator()));
+        assertTrue(test_job.toString().endsWith(System.lineSeparator()));
+    }
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        Job test_job = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertTrue(test_job.toString().contains("ID: " + test_job.getId() + System.lineSeparator()));
+        assertTrue(test_job.toString().contains("Name: " + test_job.getName() + System.lineSeparator()));
+        assertTrue(test_job.toString().contains("Employer: " + test_job.getEmployer() + System.lineSeparator()));
+        assertTrue(test_job.toString().contains("Location: " + test_job.getLocation() + System.lineSeparator()));
+        assertTrue(test_job.toString().contains("Position Type: " + test_job.getPositionType() + System.lineSeparator()));
+        assertTrue(test_job.toString().contains("Core Competency: " + test_job.getCoreCompetency() + System.lineSeparator()));
+    }
+    @Test
+    public void testToStringHandlesEmptyField() {
+        Job test_job = new Job("Product tester", new Employer(""), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertTrue(test_job.toString().contains("Employer: " + "Data not available"));
+    }
 }
